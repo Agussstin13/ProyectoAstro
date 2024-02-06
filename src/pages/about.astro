@@ -1,11 +1,37 @@
-<a href="/">Volver</a>
+---
+const pageTitle = "Sobre Mi";
+
+const identity = {
+    firstName : "Agustin",
+    country: "Argentina",
+    occupation: "programmer",
+    hobbies: ["play videogames", "program", "study"],
+};
+
+const skills = ["HTML", "CSS", "Javascript", "C#", "C++"];
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
 <body>
+    <a href="/">Volver</a>
+    <h1>{pageTitle}</h1>
     <p>
-        <li>
-            Mi nombre es Agustin Sgromo y quiero lograr muchas cosas.
-        </li>
-        <li>
-            Me pesan muchas otras.
-        </li>
+        Mi nombre es Agustin Sgromo y quiero escribir muchas cosas.<br>
     </p>
+    <h2>Algunos datos sobre mi:</h2>
+    <ul>
+        <li>
+            My name is {identity.firstName}
+        </li>
+        <li>
+            i live in {identity.country}, and y work as {identity.occupation}
+        </li>
+        {identity.hobbies.length >= 2 &&
+            <li>two of my hobbies are: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+          }
+    </ul>
 </body>
