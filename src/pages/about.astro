@@ -9,6 +9,9 @@ const identity = {
 };
 
 const skills = ["HTML", "CSS", "Javascript", "C#", "C++"];
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 <html lang="es">
   <head>
@@ -32,6 +35,14 @@ const skills = ["HTML", "CSS", "Javascript", "C#", "C++"];
         </li>
         {identity.hobbies.length >= 2 &&
             <li>two of my hobbies are: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
-          }
+        }
     </ul>
+    <p>Mis habilidades son: </p>
+    <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    {happy ? <p>estoy happy</p> : <p>estoy sad</p>}
+    {finished && <p>¡He terminado este tutoria!</p>}
+    {goal === 3 ? <p>Mi objetivo es terminar en 3 dias</p> : <p>Mi objetivo es terminar en menos de 3 dias</p>}
+
 </body>
