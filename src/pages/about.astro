@@ -1,4 +1,8 @@
 ---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "Sobre Mi";
 
 const identity = {
@@ -12,37 +16,53 @@ const skills = ["HTML", "CSS", "Javascript", "C#", "C++"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-  </head>
-<body>
-    <a href="/">Volver</a>
-    <h1>{pageTitle}</h1>
-    <p>
-        Mi nombre es Agustin Sgromo y quiero escribir muchas cosas.<br>
-    </p>
-    <h2>Algunos datos sobre mi:</h2>
-    <ul>
-        <li>
-            My name is {identity.firstName}
-        </li>
-        <li>
-            i live in {identity.country}, and y work as {identity.occupation}
-        </li>
-        {identity.hobbies.length >= 2 &&
-            <li>two of my hobbies are: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
-        }
-    </ul>
-    <p>Mis habilidades son: </p>
-    <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
-    </ul>
-    {happy ? <p>estoy happy</p> : <p>estoy sad</p>}
-    {finished && <p>¡He terminado este tutoria!</p>}
-    {goal === 3 ? <p>Mi objetivo es terminar en 3 dias</p> : <p>Mi objetivo es terminar en menos de 3 dias</p>}
-
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+            color: purple;
+            font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text.transform: var(--textCase);
+            }
+        </style>
+    </head>
+    <body>
+        <Header/>
+        <h1>{pageTitle}</h1>
+        <p>
+            Mi nombre es Agustin Sgromo y quiero escribir muchas cosas.<br>
+        </p>
+        <h2>Algunos datos sobre mi:</h2>
+        <ul>
+            <li>
+                My name is {identity.firstName}
+            </li>
+            <li>
+                i live in {identity.country}, and y work as {identity.occupation}
+            </li>
+            {identity.hobbies.length >= 2 &&
+                <li>two of my hobbies are: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+            }
+        </ul>
+        <p>Mis habilidades son: </p>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+        {happy ? <p>estoy happy</p> : <p>estoy sad</p>}
+        {finished && <p>¡He terminado este tutorial!</p>}
+        {goal === 3 ? <p>Mi objetivo es terminar en 3 dias</p> : <p>Mi objetivo es terminar en menos de 3 dias</p>}
+        <Footer/>
+    </body>
+</html>

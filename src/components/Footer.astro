@@ -1,0 +1,28 @@
+---
+const platform = "github";
+const username = "Agussstin13";
+const Linkedin = "agustin-sgromo-35253a194";
+const Instagram = "sgromo2000";
+import Social from './Social.astro';
+---
+<style>
+    footer {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+</style>
+
+<footer>
+    <Social platform="github" username="Agussstin13"/>
+    <Social platform="Linkedin" username="/in/agustin-sgromo-35253a194"/>
+    <Social platform="Instagram" username="sgromo2000"/>
+    <!--
+    <p>¡Mas informacion sobre mi!:
+        <ul>
+            <li>Visita mi pagina de <a href={`https://www.linkedin.com/in/${Linkedin}`}>Linkedin</a></li>
+            <li>Visita mi pagina de <a href={`https://www.Instagram.com/${Instagram}`}>Instagram</a></li>
+        </ul>
+    </p>
+        -->
+</footer>
